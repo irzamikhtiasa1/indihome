@@ -93,6 +93,54 @@
       .bd-mode-toggle .dropdown-menu .active .bi {
         display: block !important;
       }
+
+      .container-wa {
+            max-width: 600px;
+            margin: auto;
+            padding: 20px;
+            font-family: Arial, sans-serif;
+        }
+        .form-group {
+            margin-bottom: 15px;
+        }
+        .form-group label {
+            display: block;
+            margin-bottom: 5px;
+        }
+        .form-group input, .form-group textarea {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+        .button {
+            padding: 10px 20px;
+            background-color: #007bff;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+        .button:hover {
+            background-color: #0056b3;
+        }
+        .contact-list {
+            display: none;
+            margin-top: 20px;
+        }
+        .contact-list a {
+            display: block;
+            padding: 10px;
+            background-color: #f1f1f1;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            text-decoration: none;
+            color: #007bff;
+            margin-bottom: 10px;
+        }
+        .contact-list a:hover {
+            background-color: #ddd;
+        }
     </style>
 
     
@@ -185,117 +233,29 @@
     </div>
   </header>
 
-  <main>
-    <div class="row row-cols-1 row-cols-md-3 mb-3 text-center">
-      
-      <div class="col">
-        <div class="card mb-4 rounded-3 shadow-sm">
-          <div class="card-header py-3 text-bg-primary border-primary">
-            <h4 class="my-0 fw-normal">Paket JITU 1 1P Internet</h4>
-          </div>
-          <div class="card-body">
-            <h1 class="card-title pricing-card-title">280rb - 375rb<small class="text-body-secondary fw-light">/mo</small></h1>
-            <ul class="list-unstyled mt-3 mb-4">
-              <li>30 Mbps - 100 Mbps</li>
-              <li>Aplikasi Streaming Video</li>
-              </br>
-            </ul>
-            <button type="button" class="w-100 btn btn-lg btn-primary">Lihat paketan</button>
-          </div>
+   <div class="container-wa">
+        <!-- Form Pengisian -->
+        <div id="form-container-wa">
+            <h1>Form Pengisian</h1>
+            <div class="form-group">
+                <label for="name">Nama:</label>
+                <input type="text" id="name" required>
+            </div>
+            <div class="form-group">
+                <label for="message">Pesan:</label>
+                <textarea id="message" rows="4" required></textarea>
+            </div>
+            <button class="button" onclick="showContactList()">Selesai</button>
         </div>
-      </div>
-      
-      <div class="col">
-        <div class="card mb-4 rounded-3 shadow-sm">
-          <div class="card-header py-3 text-bg-primary border-primary">
-            <h4 class="my-0 fw-normal">Paket JITU 1 2P Internet + Phone</h4>
-          </div>
-          <div class="card-body">
-            <h1 class="card-title pricing-card-title">300rb - 360rb<small class="text-body-secondary fw-light">/mo</small></h1>
-            <ul class="list-unstyled mt-3 mb-4">
-              <li>30 Mbps - 50 Mbps</li>
-              <li>include telepon rumah</li>
-              <li>Aplikasi Streaming Video</li>
-            </ul>
-            <button type="button" class="w-100 btn btn-lg btn-primary">Lihat paketan</button>
-          </div>
+        
+        <!-- Daftar Nomor WhatsApp -->
+        <div id="contact-list" class="contact-list">
+            <h2>Pilih Kontak WhatsApp:</h2>
+            <a href="#" onclick="openChat('1234567890')">Kontak 1</a>
+            <a href="#" onclick="openChat('0987654321')">Kontak 2</a>
+            <a href="#" onclick="openChat('1122334455')">Kontak 3</a>
         </div>
-      </div>
-      
-      <div class="col">
-        <div class="card mb-4 rounded-3 shadow-sm border-primary">
-          <div class="card-header py-3 text-bg-primary border-primary">
-            <h4 class="my-0 fw-normal">Paket JITU 1 2P Internet + TV</h4>
-          </div>
-          <div class="card-body">
-            <h1 class="card-title pricing-card-title">340rb - 505rb<small class="text-body-secondary fw-light">/mo</small></h1>
-            <ul class="list-unstyled mt-3 mb-4">
-              <li>30 Mbps - 50 Mbps</li>
-              <li>TV Cable Indihome</li>
-              <li>Aplikasi Streaming Video</li>
-            </ul>
-            <button type="button" class="w-100 btn btn-lg btn-primary">Lihat Paketan</button>
-          </div>
-        </div>
-      </div>
     </div>
-
-    <h2 class="display-6 text-center mb-4">Compare plans</h2>
-
-    <div class="table-responsive">
-      <table class="table text-center">
-        <thead>
-          <tr>
-            <th style="width: 34%;"></th>
-            <th style="width: 22%;">Free</th>
-            <th style="width: 22%;">Pro</th>
-            <th style="width: 22%;">Enterprise</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <th scope="row" class="text-start">Public</th>
-            <td><svg class="bi" width="24" height="24"><use xlink:href="#check"/></svg></td>
-            <td><svg class="bi" width="24" height="24"><use xlink:href="#check"/></svg></td>
-            <td><svg class="bi" width="24" height="24"><use xlink:href="#check"/></svg></td>
-          </tr>
-          <tr>
-            <th scope="row" class="text-start">Private</th>
-            <td></td>
-            <td><svg class="bi" width="24" height="24"><use xlink:href="#check"/></svg></td>
-            <td><svg class="bi" width="24" height="24"><use xlink:href="#check"/></svg></td>
-          </tr>
-        </tbody>
-
-        <tbody>
-          <tr>
-            <th scope="row" class="text-start">Permissions</th>
-            <td><svg class="bi" width="24" height="24"><use xlink:href="#check"/></svg></td>
-            <td><svg class="bi" width="24" height="24"><use xlink:href="#check"/></svg></td>
-            <td><svg class="bi" width="24" height="24"><use xlink:href="#check"/></svg></td>
-          </tr>
-          <tr>
-            <th scope="row" class="text-start">Sharing</th>
-            <td></td>
-            <td><svg class="bi" width="24" height="24"><use xlink:href="#check"/></svg></td>
-            <td><svg class="bi" width="24" height="24"><use xlink:href="#check"/></svg></td>
-          </tr>
-          <tr>
-            <th scope="row" class="text-start">Unlimited members</th>
-            <td></td>
-            <td><svg class="bi" width="24" height="24"><use xlink:href="#check"/></svg></td>
-            <td><svg class="bi" width="24" height="24"><use xlink:href="#check"/></svg></td>
-          </tr>
-          <tr>
-            <th scope="row" class="text-start">Extra security</th>
-            <td></td>
-            <td></td>
-            <td><svg class="bi" width="24" height="24"><use xlink:href="#check"/></svg></td>
-          </tr>
-        </tbody>
-      </table>
-    </div>
-  </main>
 
   <footer class="pt-4 my-md-5 pt-md-5 border-top">
     <div class="row">
@@ -335,7 +295,21 @@
     </div>
   </footer>
 </div>
-<script src="bootstrap.bundle.min.js"></script>
+    
+ <script src="bootstrap.bundle.min.js"></script>
+ <script>
+        function showContactList() {
+            document.getElementById('form-container').style.display = 'none';
+            document.getElementById('contact-list').style.display = 'block';
+        }
+
+        function openChat(number) {
+            const name = encodeURIComponent(document.getElementById('name').value);
+            const message = encodeURIComponent(document.getElementById('message').value);
+            const url = `https://wa.me/${number}?text=Hello%20${name},%20${message}`;
+            window.open(url, '_blank');
+        }
+    </script>
 
     </body>
 </html>

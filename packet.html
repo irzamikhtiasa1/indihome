@@ -183,11 +183,9 @@
 
   <main>
     <h2 class="display-6 text-center mb-4">Packet JITU 1 1P Internet</h2>
-
     <div class="table-responsive">
-      <section id="packages-section">
-      <table id="JITU11P" class="table text-center">
-        
+      <section id="jitu11p-packages-section">
+      <table id="jitu11p-packages" class="table text-center">
         <thead>
           <tr>
             <th style="width: 20%;">Kecepatan Internet</th>
@@ -197,7 +195,6 @@
             <th style="width: 20%;">Harga</th>
           </tr>
         </thead>
-        
         <tbody>
           <tr>
             <th scope="row" class="text-start">30 Mbps</th>
@@ -214,7 +211,6 @@
             <td><svg class="bi" width="0" height="24"><span class="button-span w-100 btn btn-primary" onclick="selectPackage('Packet JITU 1 1P Internet', '30 Mbps', '', '', 'Disney+ Hotstart', 295000)">295rb<span/></svg></td>
           </tr>
         </tbody>
-
         <tbody>
           <tr>
             <th scope="row" class="text-start">50 Mbps</th>
@@ -230,7 +226,6 @@
             <td><svg class="bi" width="0" height="24"><span>Indihome TV, Disney+ Hotstar, Max Stream<span/></svg></td>
             <td><svg class="bi" width="0" height="24"><span class="button-span w-100 btn btn-primary" onclick="selectPackage('Packet JITU 1 1P Internet', '100 Mbps', '', '', 'Indihome TV, Disney+ Hotstar, Max Stream', 375000)">375rb<span/></svg></td>
           </tr>
-          
         </tbody>
       </table>
     </section>
@@ -238,9 +233,9 @@
 
   </br></br>
     <h2 class="display-6 text-center mb-4">Packet JITU 1 2P Internet + Phone</h2>
-
     <div class="table-responsive">
-      <table class="table text-center">
+      <section id="jitu12p-packages-section">
+      <table id="jitu12p-packages" class="table text-center">
         
         <thead>
           <tr>
@@ -258,14 +253,14 @@
             <td></td>
             <td><svg class="bi" width="0" height="24"><span>100 Menit<span/></svg></td>
             <td><svg class="bi" width="0" height="24"><span>Disney+ Hotstar<span/></svg></td>
-            <td><svg class="bi" width="0" height="24"><span class="button-span w-100 btn btn-primary" onclick="window.location.href='Form.html'">3000rb<span/></svg></td>
+            <td><svg class="bi" width="0" height="24"><span class="button-span w-100 btn btn-primary" onclick="selectPackage('Packet JITU 1 2P Internet', '30 Mbps', '', '100 Menit', 'Disney+ Hotstar', 300000)">300rb<span/></svg></td>
           </tr>
           <tr>
             <th scope="row" class="text-start">40 Mbps</th>
             <td></td>
             <td><svg class="bi" width="0" height="24"><span>100 Menit<span/></svg></td>
             <td><svg class="bi" width="0" height="24"><span>Disney+ Hotstar<span/></svg></td>
-            <td><svg class="bi" width="0" height="24"><span class="button-span w-100 btn btn-primary" onclick="window.location.href='Form.html'">330rb<span/></svg></td>
+            <td><svg class="bi" width="0" height="24"><span class="button-span w-100 btn btn-primary" onclick="selectPackage('Packet JITU 1 2P Internet', '40 Mbps', '', '100 Menit', 'Disney+ Hotstar', 330000)">330rb<span/></svg></td>
           </tr>
         </tbody>
 
@@ -275,7 +270,7 @@
             <td></td>
             <td><svg class="bi" width="0" height="24"><span>100 Menit<span/></svg></td>
             <td><svg class="bi" width="0" height="24"><span>Disney+ Hotstar<span/></svg></td>
-            <td><svg class="bi" width="0" height="24"><span class="button-span w-100 btn btn-primary" onclick="window.location.href='Form.html'">360rb<span/></svg></td>
+            <td><svg class="bi" width="0" height="24"><span class="button-span w-100 btn btn-primary" onclick="selectPackage('Packet JITU 1 2P Internet', '50 Mbps', '', '100 Menit', 'Disney+ Hotstar', 360000)">360rb<span/></svg></td>
           </tr>  
         </tbody>
       </table>
@@ -457,18 +452,8 @@
     </div>
   </footer>
 </div>
-<script>
-        function selectPackage(name, speed, tv, phone, streaming, price) {
-            localStorage.setItem('package-name', name);
-            localStorage.setItem('internet-speed', speed);
-            localStorage.setItem('tv-package', tv);
-            localStorage.setItem('phone', phone);
-            localStorage.setItem('streaming', streaming);
-            localStorage.setItem('price', price);
-            window.location.href = 'Form.html';
-        }
-</script>
     
+<script src="packet.purches.js"></script>  
 <script src="bootstrap.bundle.min.js"></script>
     
     </body>

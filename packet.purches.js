@@ -1,5 +1,6 @@
 // scripts.js
 
+// Fungsi untuk menyimpan data paket dan mengarahkan ke halaman pembelian
 function selectPackage(type, name, ...details) {
     localStorage.setItem('package-type', type);
     localStorage.setItem('package-name', name);
@@ -8,6 +9,7 @@ function selectPackage(type, name, ...details) {
     window.location.href = 'Form.html';
 }
 
+// Fungsi untuk menangani pengiriman form
 function submitForm() {
     const name = document.getElementById('name').value;
     const address = document.getElementById('address').value;
@@ -19,6 +21,7 @@ function submitForm() {
     document.getElementById('contact-list-section').style.display = 'block';
 }
 
+// Fungsi untuk mengirim pesan WhatsApp
 function sendWhatsApp(contact) {
     const name = document.getElementById('name').value;
     const address = document.getElementById('address').value;
@@ -35,12 +38,17 @@ function sendWhatsApp(contact) {
 // Mengisi form dengan data dari localStorage di purchase.html
 document.addEventListener('DOMContentLoaded', () => {
     if (window.location.pathname.endsWith('purchase.html')) {
-        document.getElementById('package-type').value = localStorage.getItem('package-type');
-        document.getElementById('package-name').value = localStorage.getItem('package-name');
-        document.getElementById('details').value = localStorage.getItem('details');
-        document.getElementById('price').value = localStorage.getItem('price');
+        const packageType = localStorage.getItem('package-type');
+        const packageName = localStorage.getItem('package-name');
+        const details = localStorage.getItem('details');
+        const price = localStorage.getItem('price');
+
+        document.getElementById('package-type').value = packageType;
+        document.getElementById('package-name').value = packageName;
+        document.getElementById('details').value = details;
+        document.getElementById('price').value = price;
 
         const packageDetails = `Paket: ${packageName}<br>Kecepatan: ${details}<br>Harga: ${price}`;
-        document.getElementById('selected-package').innerHTML = packageDetails;
+        document.getElementById('package-details').innerHTML = packageDetails;
     }
 });

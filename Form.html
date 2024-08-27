@@ -306,7 +306,7 @@
         function openChat(number) {
             const name = encodeURIComponent(document.getElementById('name').value);
             const message = encodeURIComponent(document.getElementById('message').value);
-            const url = `https://wa.me/${number}?text=Hello%20${name},%20${message}`;
+            const url = `https://wa.me/${number}?text=%20${name},%20${message}`;
             window.open(url, '_blank');
         }
     </script>

@@ -5,7 +5,7 @@ function selectPackage(type, name, ...details) {
     localStorage.setItem('package-name', name);
     localStorage.setItem('details', details.slice(0, -1).join(', '));
     localStorage.setItem('price', details.pop());
-    window.location.href = 'purchase.html';
+    window.location.href = 'From.html';
 }
 
 function submitForm() {

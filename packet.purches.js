@@ -35,15 +35,10 @@ function sendWhatsApp(contact) {
 // Mengisi form dengan data dari localStorage di purchase.html
 document.addEventListener('DOMContentLoaded', () => {
     if (window.location.pathname.endsWith('purchase.html')) {
-        const packageType = localStorage.getItem('package-type');
-        const packageName = localStorage.getItem('package-name');
-        const details = localStorage.getItem('details');
-        const price = localStorage.getItem('price');
-
-        document.getElementById('package-type').value = packageType;
-        document.getElementById('package-name').value = packageName;
-        document.getElementById('details').value = details;
-        document.getElementById('price').value = price;
+        document.getElementById('package-type').value = localStorage.getItem('package-type');
+        document.getElementById('package-name').value = localStorage.getItem('package-name');
+        document.getElementById('details').value = localStorage.getItem('details');
+        document.getElementById('price').value = localStorage.getItem('price');
 
         const packageDetails = `Paket: ${packageName}<br>Kecepatan: ${details}<br>Harga: ${price}`;
         document.getElementById('selected-package').innerHTML = packageDetails;

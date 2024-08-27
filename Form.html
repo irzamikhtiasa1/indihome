@@ -230,27 +230,21 @@
     </div>
   </header>
 
-   <section id="purchase-form-section">
+     <section id="purchase-form-section">
         <h2>Form Pembelian</h2>
         <form id="purchase-form">
             <label for="name">Nama:</label>
             <input type="text" id="name" name="name" required><br>
-
             <label for="address">Alamat:</label>
             <input type="text" id="address" name="address" required><br>
-
-            <input type="hidden" id="package-name" name="package-name">
-            <input type="hidden" id="internet-speed" name="internet-speed">
-            <input type="hidden" id="tv-package" name="tv-package">
-            <input type="hidden" id="phone" name="phone">
-            <input type="hidden" id="streaming" name="streaming">
-            <input type="hidden" id="price" name="price">
-
+            <input type="hidden" id="package-type">
+            <input type="hidden" id="package-name">
+            <input type="hidden" id="details">
+            <input type="hidden" id="price">
             <button type="button" onclick="submitForm()">Beli</button>
         </form>
     </section>
 
-        <!-- Daftar Kontak -->
     <section id="contact-list-section" style="display: none;">
         <h2>Kontak</h2>
         <ul>
@@ -297,43 +291,8 @@
     </div>
   </footer>
 </div>
-    
+
+ <script src="packet.purches.js"></script>
  <script src="bootstrap.bundle.min.js"></script>
- <script>
-        // Mengisi form dengan data dari localStorage
-        document.getElementById('package-name').value = localStorage.getItem('package-name');
-        document.getElementById('internet-speed').value = localStorage.getItem('internet-speed');
-        document.getElementById('tv-package').value = localStorage.getItem('tv-package');
-        document.getElementById('phone').value = localStorage.getItem('phone');
-        document.getElementById('streaming').value = localStorage.getItem('streaming');
-        document.getElementById('price').value = localStorage.getItem('price');
-
-        function submitForm() {
-            const name = document.getElementById('name').value;
-            const address = document.getElementById('address').value;
-            if (!name || !address) {
-                alert('Mohon isi semua field');
-                return;
-            }
-
-            document.getElementById('contact-list-section').style.display = 'block';
-        }
-
-        function sendWhatsApp(contact) {
-            const name = document.getElementById('name').value;
-            const address = document.getElementById('address').value;
-            const packageName = document.getElementById('package-name').value;
-            const speed = document.getElementById('internet-speed').value;
-            const tvPackage = document.getElementById('tv-package').value;
-            const phone = document.getElementById('phone').value;
-            const streaming = document.getElementById('streaming').value;
-            const price = document.getElementById('price').value;
-
-            const message = `Nama: ${name}%0AAlamat: ${address}%0APaket: ${packageName}%0AKecepatan: ${speed}%0ATV: ${tvPackage}%0ATelepon: ${phone}%0AStreaming: ${streaming}%0AHarga: ${price}`;
-
-            window.location.href = `https://wa.me/${contact}?text=${message}`;
-        }
-    </script>
-
     </body>
 </html>

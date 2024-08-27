@@ -233,30 +233,35 @@
     </div>
   </header>
 
-   <div class="container-wa">
-        <!-- Form Pengisian -->
-        <div id="form-container">
-            <h1>Form Pengisian</h1>
-            <div class="form-group">
-                <label for="name">Nama:</label>
-                <input type="text" id="name" required>
-            </div>
-            <div class="form-group">
-                <label for="message">Pesan:</label>
-                <textarea id="message" rows="4" required></textarea>
-            </div>
-            <button class="button-wa" onclick="showContactList()">Selesai</button>
-        </div>
-        
-        <!-- Daftar Nomor WhatsApp -->
-        <div id="contact-list" class="contact-list">
-            <h2>Pilih Kontak WhatsApp:</h2>
-            <a href="#" onclick="openChat('6281222721313')">Admin 1</a>
-            <a href="#" onclick="openChat('0987654321')">Kontak 2</a>
-            <a href="#" onclick="openChat('1122334455')">Kontak 3</a>
-        </div>
-    </div>
+   <section id="purchase-form-section">
+        <h2>Form Pembelian</h2>
+        <form id="purchase-form">
+            <label for="name">Nama:</label>
+            <input type="text" id="name" name="name" required><br>
 
+            <label for="address">Alamat:</label>
+            <input type="text" id="address" name="address" required><br>
+
+            <input type="hidden" id="package-name" name="package-name">
+            <input type="hidden" id="internet-speed" name="internet-speed">
+            <input type="hidden" id="tv-package" name="tv-package">
+            <input type="hidden" id="phone" name="phone">
+            <input type="hidden" id="streaming" name="streaming">
+            <input type="hidden" id="price" name="price">
+
+            <button type="button" onclick="submitForm()">Beli</button>
+        </form>
+    </section>
+
+        <!-- Daftar Kontak -->
+    <section id="contact-list-section" style="display: none;">
+        <h2>Kontak</h2>
+        <ul>
+            <li><a href="#" onclick="sendWhatsApp('6281222721313')">Kontak 1</a></li>
+            <li><a href="#" onclick="sendWhatsApp('08987654321')">Kontak 2</a></li>
+        </ul>
+    </section>
+  
   <footer class="pt-4 my-md-5 pt-md-5 border-top">
     <div class="row">
       <div class="col-12 col-md">
@@ -298,16 +303,38 @@
     
  <script src="bootstrap.bundle.min.js"></script>
  <script>
-        function showContactList() {
-            document.getElementById('form-container').style.display = 'none';
-            document.getElementById('contact-list').style.display = 'block';
+        // Mengisi form dengan data dari localStorage
+        document.getElementById('package-name').value = localStorage.getItem('package-name');
+        document.getElementById('internet-speed').value = localStorage.getItem('internet-speed');
+        document.getElementById('tv-package').value = localStorage.getItem('tv-package');
+        document.getElementById('phone').value = localStorage.getItem('phone');
+        document.getElementById('streaming').value = localStorage.getItem('streaming');
+        document.getElementById('price').value = localStorage.getItem('price');
+
+        function submitForm() {
+            const name = document.getElementById('name').value;
+            const address = document.getElementById('address').value;
+            if (!name || !address) {
+                alert('Mohon isi semua field');
+                return;
+            }
+
+            document.getElementById('contact-list-section').style.display = 'block';
         }
 
-        function openChat(number) {
-            const name = encodeURIComponent(document.getElementById('name').value);
-            const message = encodeURIComponent(document.getElementById('message').value);
-            const url = `https://wa.me/${number}?text=%20${name},%20${message}`;
-            window.open(url, '_blank');
+        function sendWhatsApp(contact) {
+            const name = document.getElementById('name').value;
+            const address = document.getElementById('address').value;
+            const packageName = document.getElementById('package-name').value;
+            const speed = document.getElementById('internet-speed').value;
+            const tvPackage = document.getElementById('tv-package').value;
+            const phone = document.getElementById('phone').value;
+            const streaming = document.getElementById('streaming').value;
+            const price = document.getElementById('price').value;
+
+            const message = `Nama: ${name}%0AAlamat: ${address}%0APaket: ${packageName}%0AKecepatan: ${speed}%0ATV: ${tvPackage}%0ATelepon: ${phone}%0AStreaming: ${streaming}%0AHarga: ${price}`;
+
+            window.location.href = `https://wa.me/${contact}?text=${message}`;
         }
     </script>
 

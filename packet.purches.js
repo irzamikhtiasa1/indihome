@@ -1,7 +1,7 @@
 // scripts.js
 
 // Fungsi untuk menyimpan data paket dan mengarahkan ke halaman pembelian
-function selectPackage(type, name, ...details) {
+function selectPackage(type, name, ...details, ppn) {
     localStorage.setItem('package-type', type);
     localStorage.setItem('package-name', name);
     localStorage.setItem('details', details.slice(0, -1).join(', '));
@@ -30,7 +30,7 @@ function sendWhatsApp(contact) {
     const details = localStorage.getItem('details');
     const price = localStorage.getItem('price');
 
-    const message = `Nama: ${name}%0AAlamat: ${address}%0AType: ${packageType}%0APaket: ${packageName}%0ADetail: ${details}%0AHarga: ${price}`;
+    const message = `Hallo Jit%0ANama: ${name}%0AAlamat: ${address}%0AType: ${packageType}%0APaket: ${packageName}%0ADetail: ${details}%0AHarga: ${price} (Harga belum termasuk PPN 11%)`;
 
     window.location.href = `https://wa.me/${contact}?text=${message}`;
 }

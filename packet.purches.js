@@ -30,7 +30,7 @@ function sendWhatsApp(contact) {
     const details = localStorage.getItem('details');
     const price = localStorage.getItem('price');
 
-    const message = `Hallo Jitu%0ANama: ${name}%0AAlamat: ${address}%0AType: ${packageType.replace(/\+/g, '%2B')}%0APaket: ${packageName}%0ADetail: ${details}%0AHarga: ${price} (Harga belum termasuk PPN 11%)`;
+    const message = `Hallo Jitu%0ANama: ${name}%0AAlamat: ${address}%0AType: ${packageType.replace(/\+/g, '%2B')}%0APaket: ${packageName}%0ADetail: ${details.replace(/\+/g, '%2B')}%0AHarga: ${price} (Harga belum termasuk PPN 11%)`;
 
     window.location.href = `https://wa.me/${contact}?text=${message}`;
 }

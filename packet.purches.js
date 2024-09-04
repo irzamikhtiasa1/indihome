@@ -1,7 +1,7 @@
 // scripts.js
 
 // Fungsi untuk menyimpan data paket dan mengarahkan ke halaman pembelian
-function selectPackage(type, name, ...details, ppn) {
+function selectPackage(type, name, ...details) {
     localStorage.setItem('package-type', type);
     localStorage.setItem('package-name', name);
     localStorage.setItem('details', details.slice(0, -1).join(', '));

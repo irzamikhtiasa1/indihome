@@ -231,21 +231,26 @@
   </header>
 
      <section id="purchase-form-section">
-        <h2>Form Pembelian</h2>
-        <form id="purchase-form">
+    <h2>Form Pembelian</h2>
+    <form id="purchase-form">
         <p><strong>Pastikan detail paket berikut sebelum melanjutkan:</strong></p>
+        <!-- Div untuk menampilkan detail paket yang sudah dipilih -->
         <div id="package-details"></div>
-            <label for="name">Nama:</label>
-            <input type="text" id="name" name="name" required><br>
-            <label for="address">Alamat:</label>
-            <input type="text" id="address" name="address" required><br>
-            <input type="hidden" id="package-type">
-            <input type="hidden" id="package-name">
-            <input type="hidden" id="details">
-            <input type="hidden" id="price">
-            <button type="button" onclick="submitForm()">Beli</button>
-        </form>
-    </section>
+        
+        <label for="name">Nama:</label>
+        <input type="text" id="name" name="name" required><br>
+        <label for="address">Alamat:</label>
+        <input type="text" id="address" name="address" required><br>
+        
+        <!-- Hidden input untuk menyimpan detail paket -->
+        <input type="hidden" id="package-type">
+        <input type="hidden" id="package-name">
+        <input type="hidden" id="details">
+        <input type="hidden" id="price">
+        
+        <button type="button" onclick="submitForm()">Beli</button>
+    </form>
+</section>
 
     <section id="contact-list-section" style="display: none;">
         <h2>Kontak</h2>

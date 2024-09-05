@@ -37,18 +37,24 @@ function sendWhatsApp(contact) {
 
 // Mengisi form dengan data dari localStorage di purchase.html
 document.addEventListener('DOMContentLoaded', () => {
-    if (window.location.pathname.endsWith('purchase.html')) {
+    if (window.location.pathname.endsWith('Form.html')) {
         const packageType = localStorage.getItem('package-type');
         const packageName = localStorage.getItem('package-name');
         const details = localStorage.getItem('details');
         const price = localStorage.getItem('price');
 
-        document.getElementById('package-type').value = packageType;
-        document.getElementById('package-name').value = packageName;
-        document.getElementById('details').value = details;
-        document.getElementById('price').value = price;
+        if (packageType && packageName && details && price) {
+            // Mengisi form dengan data dari localStorage
+            document.getElementById('package-type').value = packageType;
+            document.getElementById('package-name').value = packageName;
+            document.getElementById('details').value = details;
+            document.getElementById('price').value = price;
 
-        const packageDetails = `Paket: ${packageName}<br>Kecepatan: ${details}<br>Harga: ${price}`;
-        document.getElementById('package-details').innerHTML = packageDetails;
+            // Menampilkan detail paket yang dipilih di elemen #package-details
+            const packageDetails = `Paket: ${packageName}<br>Kecepatan: ${details}<br>Harga: ${price}`;
+            document.getElementById('package-details').innerHTML = packageDetails;
+        } else {
+            document.getElementById('package-details').innerHTML = "Tidak ada paket yang dipilih.";
+        }
     }
 });

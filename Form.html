@@ -202,13 +202,25 @@
     </form>
 </section>
 
-    <section id="contact-list-section" style="display: none;">
-        <h2>Kontak</h2>
+    <div class="modal fade" id="contactListModal" tabindex="-1" aria-labelledby="contactListModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="contactListModalLabel">Kontak</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
         <ul>
             <li><a href="#" onclick="sendWhatsApp('6281222721313')">Admin 1</a></li>
             <li><a href="#" onclick="sendWhatsApp('08987654321')">Kontak 2</a></li>
         </ul>
-    </section>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Tutup</button>
+      </div>
+    </div>
+  </div>
+</div>
   
   <footer class="pt-4 my-md-5 pt-md-5 border-top">
     <div class="row">

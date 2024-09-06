@@ -13,12 +13,16 @@ function selectPackage(type, name, ...details) {
 function submitForm() {
     const name = document.getElementById('name').value;
     const address = document.getElementById('address').value;
+
+    // Validasi form: Pastikan nama dan alamat sudah diisi
     if (!name || !address) {
         alert('Mohon isi semua field');
         return;
     }
 
-    document.getElementById('contact-list-section').style.display = 'block';
+    // Menampilkan modal dengan daftar kontak
+    const modal = new bootstrap.Modal(document.getElementById('contactListModal'));
+    modal.show();
 }
 
 // Fungsi untuk mengirim pesan WhatsApp

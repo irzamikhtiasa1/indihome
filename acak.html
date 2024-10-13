@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Acak Nomor WhatsApp</title>
+    <title>Kontak WhatsApp</title>
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -11,71 +11,52 @@
             justify-content: center;
             align-items: center;
             height: 100vh;
-            background-color: #f0f0f0;
+            background-color: #f7f7f7;
         }
-        #container {
+        .container {
             text-align: center;
-            background: white;
             padding: 20px;
             border-radius: 8px;
+            background-color: #fff;
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
         }
-        button {
+        .button {
+            display: inline-block;
+            margin-top: 20px;
             padding: 10px 20px;
+            color: #fff;
+            background-color: #25D366;
+            border-radius: 5px;
+            text-decoration: none;
             font-size: 16px;
-            cursor: pointer;
         }
-        input {
-            padding: 10px;
-            margin: 5px 0;
-            width: 80%;
+        .button:hover {
+            background-color: #128C7E;
         }
     </style>
 </head>
 <body>
-    <div id="container">
-        <h1>Acak Nomor WhatsApp</h1>
-        <input type="text" id="number1" placeholder="Nomor 1" />
-        <input type="text" id="number2" placeholder="Nomor 2" />
-        <input type="text" id="number3" placeholder="Nomor 3" />
-        <input type="text" id="number4" placeholder="Nomor 4" />
-        <input type="text" id="number5" placeholder="Nomor 5" />
-        <button id="randomizeButton">Acak Nomor</button>
-        <p id="result"></p>
-    </div>
 
-    <script>
-        document.getElementById('randomizeButton').addEventListener('click', function() {
-            // Ambil semua nomor dari input
-            const numbers = [
-                document.getElementById('number1').value,
-                document.getElementById('number2').value,
-                document.getElementById('number3').value,
-                document.getElementById('number4').value,
-                document.getElementById('number5').value
-            ].filter(num => num.trim() !== ''); // Hanya ambil nomor yang tidak kosong
+<div class="container">
+    <h1>Hubungi Kami Melalui WhatsApp</h1>
+    <p>Klik tombol di bawah untuk menghubungi kami!</p>
+    <a id="whatsapp-link" class="button" href="#" target="_blank">Hubungi di WhatsApp</a>
+</div>
 
-            if (numbers.length === 0) {
-                document.getElementById('result').textContent = "Silakan masukkan setidaknya satu nomor.";
-                return;
-            }
+<script>
+    // Daftar nomor WhatsApp
+    const numbers = [
+        "6281234567890", // Ganti dengan nomor Anda
+        "6289876543210", // Ganti dengan nomor Anda
+        "6281122334455"  // Ganti dengan nomor Anda
+    ];
 
-            // Fungsi untuk mengacak nomor
-            const randomIndex = Math.floor(Math.random() * numbers.length);
-            const selectedNumber = numbers[randomIndex];
-            const whatsappUrl = `https://wa.me/${selectedNumber}`; // Format URL WhatsApp
-            document.getElementById('result').textContent = `Nomor acak: ${selectedNumber}`;
+    // Pilih nomor secara acak
+    const randomNumber = numbers[Math.floor(Math.random() * numbers.length)];
 
-            // Mengarahkan pengguna ke WhatsApp setelah 2 detik
-            setTimeout(() => {
-                window.location.href = whatsappUrl;
-            }, 2000);
-        });
+    // Atur tautan WhatsApp
+    document.getElementById("whatsapp-link").href = `https://wa.me/${randomNumber}`;
+</script>
 
-        // Mengacak nomor secara otomatis saat halaman dimuat
-        window.onload = function() {
-            document.getElementById('randomizeButton').click();
-        };
-    </script>
 </body>
 </html>
